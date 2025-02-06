@@ -5,6 +5,7 @@ import { router } from "expo-router";
 import { Eye, EyeOff } from "lucide-react-native";
 import React from "react";
 import {
+  ActivityIndicator,
   Image,
   Keyboard,
   Text,
@@ -22,9 +23,12 @@ export default function LoginPage() {
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
   };
+  const [isLoading, setIsLoading] = React.useState(false);
   const handleLogin = async () => {
+    setIsLoading(true);
     if (!email || !password) {
       alert("Please fill all the fields");
+      setIsLoading(false);
       return;
     }
     const response = await fetch(
@@ -43,8 +47,10 @@ export default function LoginPage() {
       const { token } = dataFromServer;
       await setToken(token, true);
       router.push("/");
+      setIsLoading(false);
     } else {
       alert(dataFromServer.error);
+      setIsLoading(false);
     }
   };
   return (
@@ -95,13 +101,18 @@ export default function LoginPage() {
                 </TouchableOpacity>
               </View>
 
-              <TouchableOpacity className="bg-blue-500 p-5 rounded-full">
-                <Text
-                  className="text-white text-center font-lexend-bold text-lg"
-                  onPress={handleLogin}
-                >
-                  Login
-                </Text>
+              <TouchableOpacity
+                className="bg-blue-500 p-5 rounded-full"
+                onPress={handleLogin}
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <ActivityIndicator size="small" color="white" />
+                ) : (
+                  <Text className="text-white text-center font-lexend-bold text-lg">
+                    Login
+                  </Text>
+                )}
               </TouchableOpacity>
               <View className="flex flex-row items-center justify-center gap-2">
                 <Text className="text-white font-lexend">

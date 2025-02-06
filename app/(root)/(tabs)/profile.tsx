@@ -58,6 +58,7 @@ const Profile = () => {
             <Text className="font-lexend-light text-lg">Review Given</Text>
             <ChevronRight color="black" />
           </TouchableOpacity>
+          <Divider className="mt-2" />
         </View>
         <TouchableOpacity
           className="flex flex-row justify-between  items-center gap-2 py-3"
