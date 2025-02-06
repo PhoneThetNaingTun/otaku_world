@@ -6,6 +6,7 @@ import { Link, Redirect, router } from "expo-router";
 import { Eye, EyeOff } from "lucide-react-native";
 import React from "react";
 import {
+  ActivityIndicator,
   Image,
   Keyboard,
   Text,
@@ -22,17 +23,22 @@ export default function Register() {
   const [password, setPassword] = React.useState("");
   const [confirmPassword, setConfirmPassword] = React.useState("");
   const [isPasswordVisible, setIsPasswordVisible] = React.useState(false);
-
+  const [isLoading, setIsLoading] = React.useState(false);
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
   };
   const handleregistesr = async () => {
+    setIsLoading(true);
     if (!name || !email || !password || !confirmPassword) {
       alert("Please fill all the fields");
+      setIsLoading(false);
+
       return;
     }
     if (password !== confirmPassword) {
       alert("Password and Confirm Password must be the same");
+      setIsLoading(false);
+
       return;
     }
     const response = await fetch(
@@ -57,8 +63,10 @@ export default function Register() {
       setConfirmPassword("");
       await setToken(token, true);
       router.push("/");
+      setIsLoading(false);
     } else {
       alert(dataFromServer.error);
+      setIsLoading(false);
     }
   };
   return (
@@ -133,10 +141,15 @@ export default function Register() {
               <TouchableOpacity
                 className="bg-red-500 p-5 rounded-full"
                 onPressOut={handleregistesr}
+                disabled={isLoading}
               >
-                <Text className="text-white text-center font-lexend-bold text-lg">
-                  Register
-                </Text>
+                {isLoading ? (
+                  <ActivityIndicator size="large" color="white" />
+                ) : (
+                  <Text className="text-white text-center font-lexend-bold">
+                    Register
+                  </Text>
+                )}
               </TouchableOpacity>
               <View className="flex flex-row items-center justify-center gap-2">
                 <Text className="text-white font-lexend">
