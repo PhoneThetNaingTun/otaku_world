@@ -24,7 +24,7 @@ export const CreateRatingAndReview = createAsyncThunk(
     const token = await AsyncStorage.getItem("token");
     try {
       const response = await fetch(
-        "http://192.168.99.96:8000/api/rating-review/create-rating-and-review",
+        "https://otaku-server-o9rc.onrender.com/api/rating-review/create-rating-and-review",
         {
           method: "POST",
           headers: {
@@ -63,7 +63,7 @@ export const GetRatingAndReviews = createAsyncThunk(
     thunkapi.dispatch(setRatingAndReviewLoading(true));
     try {
       const response = await fetch(
-        `http://192.168.99.96:8000/api/rating-review//get-rating-and-review-by-manga?mangaId=${mangaId}`,
+        `https://otaku-server-o9rc.onrender.com/api/rating-review//get-rating-and-review-by-manga?mangaId=${mangaId}`,
         {
           method: "GET",
           headers: {
@@ -96,7 +96,7 @@ export const GetRatingAndReviewByUserId = createAsyncThunk(
     thunkapi.dispatch(setRatingAndReviewLoading(true));
     try {
       const response = await fetch(
-        `http://192.168.99.96:8000/api/rating-review/get-rating-and-review-by-user`,
+        `https://otaku-server-o9rc.onrender.com/api/rating-review/get-rating-and-review-by-user`,
         {
           method: "GET",
           headers: {
@@ -129,7 +129,7 @@ export const DeleteRatingAndReveiw = createAsyncThunk(
     const token = await AsyncStorage.getItem("token");
     try {
       const response = await fetch(
-        `http://192.168.99.96:8000/api/rating-review/delete-rating-and-review`,
+        `https://otaku-server-o9rc.onrender.com/api/rating-review/delete-rating-and-review`,
         {
           method: "DELETE",
           headers: {

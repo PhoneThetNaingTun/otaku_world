@@ -13,7 +13,7 @@ export const GetPages = createAsyncThunk(
     thunkapi.dispatch(setPageLoading(true));
     try {
       const reaponse = await fetch(
-        `http://192.168.99.96:8000/api/pages/get-pages?mangaSeasonChapterId=${mangaSeasonChapterId}`
+        `https://otaku-server-o9rc.onrender.com/api/pages/get-pages?mangaSeasonChapterId=${mangaSeasonChapterId}`
       );
       const dataFromServer = await reaponse.json();
       const { pages } = dataFromServer;

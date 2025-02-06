@@ -36,7 +36,7 @@ export default function Register() {
       return;
     }
     const response = await fetch(
-      "http://192.168.99.96:8000/api/user/register",
+      "https://otaku-server-o9rc.onrender.com/api/user/register",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

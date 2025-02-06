@@ -17,7 +17,7 @@ export const GetChapters = createAsyncThunk(
     thunkapi.dispatch(setMangaSeasonChapterLoading(true));
     try {
       const response = await fetch(
-        `http://192.168.99.96:8000/api/chapters/get-chapters?mangaSeasonId=${mangaSeasonId}`
+        `https://otaku-server-o9rc.onrender.com/api/chapters/get-chapters?mangaSeasonId=${mangaSeasonId}`
       );
       const dataFromServer = await response.json();
       const { mangaSeasonChapterWithPageCount } = dataFromServer;

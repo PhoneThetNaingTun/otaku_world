@@ -27,14 +27,17 @@ export default function LoginPage() {
       alert("Please fill all the fields");
       return;
     }
-    const response = await fetch("http://192.168.99.96:8000/api/user/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        password,
-        email,
-      }),
-    });
+    const response = await fetch(
+      "https://otaku-server-o9rc.onrender.com/api/user/login",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          password,
+          email,
+        }),
+      }
+    );
     const dataFromServer = await response.json();
     if (response.ok) {
       const { token } = dataFromServer;

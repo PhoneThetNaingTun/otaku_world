@@ -29,7 +29,7 @@ export const GetMangas = createAsyncThunk(
     thunkapi.dispatch(setMangaLoading(true));
     try {
       const response = await fetch(
-        `http://192.168.99.96:8000/api/mangas/get-mangas`,
+        `https://otaku-server-o9rc.onrender.com/api/mangas/get-mangas`,
         {
           method: "GET",
           headers: {
@@ -62,7 +62,7 @@ export const GetLatestMangas = createAsyncThunk(
     thunkapi.dispatch(setMangaLoading(true));
     try {
       const response = await fetch(
-        `http://192.168.99.96:8000/api/mangas/get-latest-mangas`,
+        `https://otaku-server-o9rc.onrender.com/api/mangas/get-latest-mangas`,
         {
           method: "GET",
           headers: {
@@ -95,7 +95,7 @@ export const GetMostRatedMangas = createAsyncThunk(
     thunkapi.dispatch(setMangaLoading(true));
     try {
       const response = await fetch(
-        `http://192.168.99.96:8000/api/mangas/get-most-rated-mangas`,
+        `https://otaku-server-o9rc.onrender.com/api/mangas/get-most-rated-mangas`,
         {
           method: "GET",
           headers: {
@@ -128,7 +128,7 @@ export const GetMangaDetail = createAsyncThunk(
     thunkapi.dispatch(setMangaLoading(true));
     try {
       const response = await fetch(
-        `http://192.168.99.96:8000/api/mangas/get-manga?mangaId=${id}`,
+        `https://otaku-server-o9rc.onrender.com/api/mangas/get-manga?mangaId=${id}`,
         {
           method: "GET",
           headers: {
@@ -165,7 +165,7 @@ export const GetMangaByCategory = createAsyncThunk(
     thunkapi.dispatch(setMangaLoading(true));
     try {
       const response = await fetch(
-        `http://192.168.99.96:8000/api/mangas/get-manga-by-category?id=${id}`,
+        `https://otaku-server-o9rc.onrender.com/api/mangas/get-manga-by-category?id=${id}`,
         {
           method: "GET",
           headers: {
@@ -197,7 +197,7 @@ export const GetMangaBySearch = createAsyncThunk(
     thunkapi.dispatch(setSearchMangaLoading(true));
     try {
       const response = await fetch(
-        `http://192.168.99.96:8000/api/mangas/get-mangas-by-search?search=${search}`,
+        `https://otaku-server-o9rc.onrender.com/api/mangas/get-mangas-by-search?search=${search}`,
         {
           method: "GET",
           headers: {

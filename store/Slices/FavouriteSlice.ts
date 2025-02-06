@@ -20,7 +20,7 @@ export const GetFavManga = createAsyncThunk(
     const token = await AsyncStorage.getItem("token");
     try {
       const response = await fetch(
-        `http://192.168.99.96:8000/api/favourite/get-favorite-mangas`,
+        `https://otaku-server-o9rc.onrender.com/api/favourite/get-favorite-mangas`,
         {
           method: "GET",
           headers: {
@@ -55,7 +55,7 @@ export const ToogleFavManga = createAsyncThunk(
     const token = await AsyncStorage.getItem("token");
     try {
       const response = await fetch(
-        `http://192.168.99.96:8000/api/favourite/add-favourite`,
+        `https://otaku-server-o9rc.onrender.com/api/favourite/add-favourite`,
         {
           method: "POST",
           headers: {

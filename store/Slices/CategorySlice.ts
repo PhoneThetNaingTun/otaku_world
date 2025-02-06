@@ -16,7 +16,7 @@ export const GetCategories = createAsyncThunk(
     const token = await AsyncStorage.getItem("token");
     try {
       const response = await fetch(
-        `http://192.168.99.96:8000/api/categories/get-categories`,
+        `https://otaku-server-o9rc.onrender.com/api/categories/get-categories`,
         {
           method: "GET",
           headers: {

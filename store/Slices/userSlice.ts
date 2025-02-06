@@ -22,7 +22,7 @@ export const getUserData = createAsyncThunk(
       if (isLoggedIn === "true") {
         const token = await AsyncStorage.getItem("token");
         const response = await fetch(
-          `http://192.168.99.96:8000/api/user/getuser`,
+          `https://otaku-server-o9rc.onrender.com/api/user/getuser`,
           {
             method: "GET",
             headers: {
@@ -59,7 +59,7 @@ export const UpdateUser = createAsyncThunk(
     const token = await AsyncStorage.getItem("token");
     try {
       const response = await fetch(
-        "http://192.168.99.96:8000/api/user/update-user",
+        "https://otaku-server-o9rc.onrender.com/api/user/update-user",
         {
           method: "PATCH",
           headers: {
