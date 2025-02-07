@@ -1,4 +1,11 @@
-import { View, Text, SafeAreaView, ScrollView, FlatList } from "react-native";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  ScrollView,
+  FlatList,
+  ActivityIndicator,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import BackNav from "@/components/BackNav";
 import MangaCard from "@/components/MangaCard";
@@ -28,9 +35,9 @@ export default function FavoritePage() {
   }, [isLoaded]);
   if (!isLoaded) {
     return (
-      <SafeAreaView className="flex h-full justify-center items-center">
+      <SafeAreaView className="flex h-full justify-center items-center bg-white">
         <BackNav />
-        <Text className="font-lexend-light text-lg">Loading...</Text>
+        <ActivityIndicator size="small" color="red" />
       </SafeAreaView>
     );
   }

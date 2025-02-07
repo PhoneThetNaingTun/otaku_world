@@ -33,7 +33,7 @@ export default function ReviewGivenPage() {
 
   if (!isLoaded) {
     return (
-      <SafeAreaView className="flex h-full justify-center items-center ">
+      <SafeAreaView className="flex h-full justify-center items-center bg-white">
         <BackNav />
         <ActivityIndicator size="small" color="red" />
       </SafeAreaView>

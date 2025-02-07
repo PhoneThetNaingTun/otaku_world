@@ -4,6 +4,7 @@ import {
   TouchableOpacity,
   FlatList,
   Text,
+  ActivityIndicator,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -37,15 +38,9 @@ const Category = () => {
   };
   if (!isLoaded) {
     return (
-      <SafeAreaView className="flex-1">
-        <TouchableOpacity
-          onPress={() => {
-            router.back();
-          }}
-          className="w-full flex flex-row items-center gap-5"
-        >
-          <ChevronLeft size={35} color="black" />
-        </TouchableOpacity>
+      <SafeAreaView className="flex-1 bg-white">
+        <BackNav />
+        <ActivityIndicator size="small" color="red" />
       </SafeAreaView>
     );
   }
