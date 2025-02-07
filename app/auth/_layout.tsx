@@ -1,21 +1,21 @@
 import { View, Text } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { router, Stack } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const AuthLayout = () => {
   const [isLoaded, setIsLoaded] = React.useState<boolean>(false);
-  const testLogin = async () => {
+  const checkLogin = async () => {
     const isLoggedIn = await AsyncStorage.getItem("isLoggedIn");
     if (isLoggedIn === "true") {
-      router.push("/");
+      router.replace("/");
     } else {
       setIsLoaded(true);
     }
   };
   useEffect(() => {
     if (!isLoaded) {
-      testLogin();
+      checkLogin();
     }
   }, [isLoaded]);
   if (!isLoaded) {

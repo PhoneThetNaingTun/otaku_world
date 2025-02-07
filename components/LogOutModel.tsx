@@ -25,6 +25,7 @@ export default function LogoutModel({ showModel, setshowModel }: Prop) {
     setshowModel(false);
     await removeTokens();
     dispatch(setUser(null));
+    router.replace("/auth/login/login");
   };
   return (
     <Modal isOpen={showModel} onClose={() => setshowModel(false)} size="md">

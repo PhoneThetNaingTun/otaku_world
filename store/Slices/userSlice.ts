@@ -37,16 +37,15 @@ export const getUserData = createAsyncThunk(
           onSuccess && onSuccess({});
           thunkapi.dispatch(setUser(user));
         } else {
-          alert(dataFromServer.error);
-          router.push("/auth/login/login");
-          removeTokens();
+          onError && onError(dataFromServer.error);
         }
       } else {
-        removeTokens();
-        router.push("/auth/login/login");
+        onError && onError("User not logged in");
       }
     } catch (err) {
       console.log(err);
+      router.push("/auth/login/login");
+      throw new Error("Failed to get user data");
     }
   }
 );

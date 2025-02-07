@@ -44,7 +44,7 @@ export default function Index() {
     <SafeAreaView edges={["top"]} className="bg-white h-full px-5">
       <ProfileTop />
 
-      {/* <ScrollView
+      <ScrollView
         showsVerticalScrollIndicator={false}
         refreshControl={
           <RefreshControl
@@ -55,74 +55,76 @@ export default function Index() {
             progressBackgroundColor="#fff"
           />
         }
-      > */}
-      <View className="mt-5">
-        <Text className="font-lexend-bold text-xl mb-5">Latest Manga</Text>
-        <FlatList
-          data={latestMangas}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <Card
-              image={item.manga_image}
-              title={item.manga_name}
-              author={item.author.author_name}
-              onPress={() => router.push(`/(root)/manga-detail/${item.id}`)}
-            />
-          )}
-          horizontal
-          contentContainerClassName="flex gap-5"
-          showsHorizontalScrollIndicator={false}
-          bounces={false}
-        />
-        <Text className="font-lexend-bold text-xl my-3">Categories</Text>
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          className="flex flex-row"
-          contentContainerStyle={{ gap: 10 }}
-        >
-          {categories.map((category) => (
-            <CategoryCards
-              category_name={category.category_name}
-              key={category.id}
-              onPress={() => {
-                router.push(`/(root)/category/${category.id}`);
-              }}
-            />
-          ))}
-        </ScrollView>
-        <View className="w-full mt-5">
-          <Text className="font-lexend-bold text-xl mb-5">
-            Most Rated Mangas
-          </Text>
-          {mostRatedMangas.length < 1 ? (
-            <View className="w-full h-56 flex justify-center items-center">
-              <View className="flex items-center gap-2 flex-row">
-                <Ban color="black" size={30} />
-                <Text>Empty</Text>
+      >
+        <View className="mt-5">
+          <Text className="font-lexend-bold text-xl mb-5">Latest Manga</Text>
+          <FlatList
+            data={latestMangas}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <Card
+                image={item.manga_image}
+                title={item.manga_name}
+                author={item.author.author_name}
+                onPress={() => router.push(`/(root)/manga-detail/${item.id}`)}
+              />
+            )}
+            horizontal
+            contentContainerClassName="flex gap-5"
+            showsHorizontalScrollIndicator={false}
+            bounces={false}
+          />
+          <Text className="font-lexend-bold text-xl my-3">Categories</Text>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            className="flex flex-row"
+            contentContainerStyle={{ gap: 10 }}
+          >
+            {categories.map((category) => (
+              <CategoryCards
+                category_name={category.category_name}
+                key={category.id}
+                onPress={() => {
+                  router.push(`/(root)/category/${category.id}`);
+                }}
+              />
+            ))}
+          </ScrollView>
+          <View className="w-full mt-5">
+            <Text className="font-lexend-bold text-xl mb-5">
+              Most Rated Mangas
+            </Text>
+            {mostRatedMangas.length < 1 ? (
+              <View className="w-full h-56 flex justify-center items-center">
+                <View className="flex items-center gap-2 flex-row">
+                  <Ban color="black" size={30} />
+                  <Text>Empty</Text>
+                </View>
               </View>
-            </View>
-          ) : (
-            <FlatList
-              data={mostRatedMangas}
-              keyExtractor={(item) => item.id}
-              renderItem={({ item }) => (
-                <Card
-                  image={item.manga_image}
-                  title={item.manga_name}
-                  author={item.author.author_name}
-                  onPress={() => router.push(`/(root)/manga-detail/${item.id}`)}
-                />
-              )}
-              horizontal
-              contentContainerClassName="flex gap-5"
-              showsHorizontalScrollIndicator={false}
-              bounces={false}
-            />
-          )}
+            ) : (
+              <FlatList
+                data={mostRatedMangas}
+                keyExtractor={(item) => item.id}
+                renderItem={({ item }) => (
+                  <Card
+                    image={item.manga_image}
+                    title={item.manga_name}
+                    author={item.author.author_name}
+                    onPress={() =>
+                      router.push(`/(root)/manga-detail/${item.id}`)
+                    }
+                  />
+                )}
+                horizontal
+                contentContainerClassName="flex gap-5"
+                showsHorizontalScrollIndicator={false}
+                bounces={false}
+              />
+            )}
+          </View>
         </View>
-      </View>
-      {/* </ScrollView> */}
+      </ScrollView>
     </SafeAreaView>
   );
 }
