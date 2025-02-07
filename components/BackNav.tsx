@@ -6,7 +6,7 @@ import { router } from "expo-router";
 export default function BackNav() {
   return (
     <TouchableOpacity
-      className="absolute top-14 left-5  z-10 w-11 rounded-md bg-white"
+      className="absolute top-5 left-5  z-10 w-11 rounded-md bg-white"
       onPress={() => {
         router.back();
       }}

@@ -1,4 +1,4 @@
-import { View, Text, Image, ScrollView, FlatList } from "react-native";
+import { View, Text, Image, FlatList, ActivityIndicator } from "react-native";
 import React, { useEffect, useState } from "react";
 import BackNav from "@/components/BackNav";
 import images from "@/constants/images";
@@ -26,7 +26,8 @@ export default function Reviews() {
   if (!isLoaded) {
     return (
       <SafeAreaView className="flex h-full justify-center items-center">
-        <Image src={images.loadingRimuru} alt="Loading" className="w-32 h-32" />
+        <BackNav />
+        <ActivityIndicator size="small" color="red" />
       </SafeAreaView>
     );
   }
@@ -50,7 +51,7 @@ export default function Reviews() {
           <View>
             <View className="w-full h-96 relative">
               <Image
-                source={{ uri: mangaDetail?.manga_image }}
+                source={{ uri: mangaDetail.manga_image }}
                 className=" w-full h-full"
                 resizeMode="cover"
               />

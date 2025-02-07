@@ -2,14 +2,13 @@ import {
   View,
   Text,
   SafeAreaView,
-  ScrollView,
   Image,
   FlatList,
+  ActivityIndicator,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import BackNav from "@/components/BackNav";
 import { Star } from "lucide-react-native";
-import ReviewCard from "@/components/ReviewCard";
 import GivenReviewCard from "@/components/GivenReviewCard";
 import ProfileHeader from "@/components/ProfileHeader";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
@@ -36,14 +35,13 @@ export default function ReviewGivenPage() {
     return (
       <SafeAreaView className="flex h-full justify-center items-center ">
         <BackNav />
-        <Image src={images.loadingRimuru} alt="Loading" className="w-32 h-32" />
+        <ActivityIndicator size="small" color="red" />
       </SafeAreaView>
     );
   }
 
   return (
     <SafeAreaView className="px-5 h-full bg-white">
-      <BackNav />
       {ratingAndReviews.length == 0 ? (
         <View className="w-full h-full">
           <ProfileHeader

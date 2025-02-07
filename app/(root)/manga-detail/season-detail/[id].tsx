@@ -5,7 +5,10 @@ import BackNav from "@/components/BackNav";
 import ChapterCard from "@/components/ChapterCard";
 import { router, useLocalSearchParams } from "expo-router";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
-import { GetChapters } from "@/store/Slices/MangaSeasonChapter";
+import {
+  GetChapters,
+  setMangaSeasonChapters,
+} from "@/store/Slices/MangaSeasonChapter";
 import images from "@/constants/images";
 
 export default function SeasonDetail() {
@@ -18,6 +21,7 @@ export default function SeasonDetail() {
   const mangaSeason = mangaSeasons.find((mangaSeason) => mangaSeason.id === id);
   const [isloaded, setIsLoaded] = useState<boolean>(false);
   useEffect(() => {
+    dispatch(setMangaSeasonChapters([]));
     dispatch(
       GetChapters({
         mangaSeasonId: id as string,

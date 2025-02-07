@@ -36,7 +36,6 @@ export default function FavoritePage() {
   }
   return (
     <SafeAreaView className="bg-white h-full">
-      <BackNav />
       <ProfileHeader
         header="Your Favourite"
         icon={Heart}

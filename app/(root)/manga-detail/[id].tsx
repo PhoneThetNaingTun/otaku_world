@@ -71,10 +71,11 @@ const MangaDetail = () => {
       <SafeAreaView
         style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
       >
-        <Image
+        <BackNav />
+        {/* <Image
           source={images.loadingRimuru}
           style={{ width: 200, height: 200 }}
-        />
+        /> */}
       </SafeAreaView>
     );
   }
@@ -161,23 +162,25 @@ const MangaDetail = () => {
                   {mangaDetail.numOfChapter} Chapters
                 </Text>
               </View>
-              <FlatList
-                data={mangaCategories}
-                horizontal
-                showsHorizontalScrollIndicator={false}
-                keyExtractor={(item) => item.id}
-                contentContainerClassName="my-4 gap-2 flex-1"
-                renderItem={({ item: mangacategory }) => (
-                  <View
-                    key={mangacategory.id}
-                    className="bg-gray-200 px-3 py-2 rounded-full"
-                  >
-                    <Text className="text-gray-600 font-lexend">
-                      {mangacategory.category.category_name}
-                    </Text>
-                  </View>
-                )}
-              />
+              <View>
+                <FlatList
+                  data={mangaCategories}
+                  horizontal
+                  showsHorizontalScrollIndicator={false}
+                  keyExtractor={(item) => item.id}
+                  contentContainerClassName="my-4 gap-2"
+                  renderItem={({ item: mangacategory }) => (
+                    <View
+                      key={mangacategory.id}
+                      className="bg-gray-200 px-3 py-2 rounded-full"
+                    >
+                      <Text className="text-gray-600 font-lexend">
+                        {mangacategory.category.category_name}
+                      </Text>
+                    </View>
+                  )}
+                />
+              </View>
               <Divider className="my-4" />
               <View>
                 <Text className="font-lexend-bold text-xl">

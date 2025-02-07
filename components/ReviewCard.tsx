@@ -15,7 +15,11 @@ export default function ReviewCard({ rating, review, user }: Prop) {
   return (
     <Card size="lg" variant="outline" className="m-3 bg-white">
       <View className="flex flex-row items-center gap-3">
-        <Image source={images.profile} className="w-14 h-14 rounded-md" />
+        <Image
+          source={images.profile}
+          alt="Avator"
+          className="w-14 h-14 rounded-md"
+        />
         <View>
           <Text className="font-lexend-bold text-lg">{user.name}</Text>
           <StarRating rating={rating} onChange={() => {}} starSize={20} />

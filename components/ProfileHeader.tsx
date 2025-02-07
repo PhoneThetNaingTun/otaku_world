@@ -1,6 +1,7 @@
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
-import { LucideProps } from "lucide-react-native";
+import { ChevronLeft, LucideProps } from "lucide-react-native";
+import { router } from "expo-router";
 
 interface Prop {
   header: string;
@@ -16,7 +17,17 @@ export default function ProfileHeader({
   iconFill,
 }: Prop) {
   return (
-    <View className="flex flex-row justify-center items-center gap-3 mt-2">
+    <View className="flex flex-row justify-center items-center gap-3 mt-2 relative">
+      <TouchableOpacity
+        className="absolute top-1 left-5  z-10 w-11 rounded-md bg-white"
+        onPress={() => {
+          router.back();
+        }}
+      >
+        <View>
+          <ChevronLeft size={35} color="black" />
+        </View>
+      </TouchableOpacity>
       {Icon && <Icon color={iconColor} fill={iconFill ? iconFill : ""} />}
       <Text className="font-lexend-extraBold text-3xl text-center ">
         {header}

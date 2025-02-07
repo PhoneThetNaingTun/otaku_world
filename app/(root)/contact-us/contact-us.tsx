@@ -27,7 +27,6 @@ const contactUsCard = [
 export default function ContactUsPage() {
   return (
     <SafeAreaView className="bg-white">
-      <BackNav />
       <View className="px-5 h-full">
         <ProfileHeader
           header="Contact Us"

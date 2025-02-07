@@ -63,7 +63,7 @@ export const GetRatingAndReviews = createAsyncThunk(
     thunkapi.dispatch(setRatingAndReviewLoading(true));
     try {
       const response = await fetch(
-        `https://otaku-server-o9rc.onrender.com/api/rating-review//get-rating-and-review-by-manga?mangaId=${mangaId}`,
+        `https://otaku-server-o9rc.onrender.com/api/rating-review/get-rating-and-review-by-manga?mangaId=${mangaId}`,
         {
           method: "GET",
           headers: {
