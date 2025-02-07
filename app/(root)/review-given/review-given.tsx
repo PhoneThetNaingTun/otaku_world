@@ -5,6 +5,7 @@ import {
   ScrollView,
   Image,
   FlatList,
+  ActivityIndicator,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import BackNav from "@/components/BackNav";
@@ -34,16 +35,15 @@ export default function ReviewGivenPage() {
 
   if (!isLoaded) {
     return (
-      <SafeAreaView className="flex h-full justify-center items-center ">
+      <SafeAreaView className="flex h-full justify-center items-center bg-white">
         <BackNav />
-        <Image src={images.loadingRimuru} alt="Loading" className="w-32 h-32" />
+        <ActivityIndicator size="small" color="red" />
       </SafeAreaView>
     );
   }
 
   return (
     <SafeAreaView className="px-5 h-full bg-white">
-      <BackNav />
       {ratingAndReviews.length == 0 ? (
         <View className="w-full h-full">
           <ProfileHeader

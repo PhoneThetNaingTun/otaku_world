@@ -166,7 +166,7 @@ const MangaDetail = () => {
                 horizontal
                 showsHorizontalScrollIndicator={false}
                 keyExtractor={(item) => item.id}
-                contentContainerClassName="my-4 gap-2 flex-1"
+                contentContainerClassName="my-4 gap-2 "
                 renderItem={({ item: mangacategory }) => (
                   <View
                     key={mangacategory.id}
