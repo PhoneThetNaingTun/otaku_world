@@ -1,4 +1,11 @@
-import { View, Text, ScrollView, FlatList, Image } from "react-native";
+import {
+  View,
+  Text,
+  ScrollView,
+  FlatList,
+  Image,
+  ActivityIndicator,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import BackNav from "@/components/BackNav";
@@ -9,7 +16,6 @@ import {
   GetChapters,
   setMangaSeasonChapters,
 } from "@/store/Slices/MangaSeasonChapter";
-import images from "@/constants/images";
 
 export default function SeasonDetail() {
   const { id } = useLocalSearchParams();
@@ -34,7 +40,7 @@ export default function SeasonDetail() {
   if (!isloaded) {
     <SafeAreaView className="h-full flex justify-center items-center  bg-white">
       <BackNav />
-      <Image src={images.loadingRimuru} className="w-20 h-20" />
+      <ActivityIndicator size="small" color="red" />
     </SafeAreaView>;
   }
   return (
