@@ -10,7 +10,6 @@ import {
 } from "react-native";
 import React, { useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import images from "@/constants/images";
 import BackNav from "@/components/BackNav";
 import { router, useLocalSearchParams } from "expo-router";
 import { ChevronRight, Heart, Star, X } from "lucide-react-native";
