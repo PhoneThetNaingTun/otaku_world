@@ -72,10 +72,7 @@ const MangaDetail = () => {
         style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
       >
         <BackNav />
-        {/* <Image
-          source={images.loadingRimuru}
-          style={{ width: 200, height: 200 }}
-        /> */}
+        <ActivityIndicator size="small" color="red" />
       </SafeAreaView>
     );
   }
