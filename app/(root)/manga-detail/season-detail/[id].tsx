@@ -1,4 +1,11 @@
-import { View, Text, ScrollView, FlatList, Image } from "react-native";
+import {
+  View,
+  Text,
+  ScrollView,
+  FlatList,
+  Image,
+  ActivityIndicator,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import BackNav from "@/components/BackNav";
@@ -6,15 +13,16 @@ import ChapterCard from "@/components/ChapterCard";
 import { router, useLocalSearchParams } from "expo-router";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { GetChapters } from "@/store/Slices/MangaSeasonChapter";
-import images from "@/constants/images";
 
 export default function SeasonDetail() {
   const { id } = useLocalSearchParams();
   const dispatch = useAppDispatch();
-  const { mangaSeasonChapters } = useAppSelector(
+  const { mangaSeasonChapters, mangaSeasonChapterLoading } = useAppSelector(
     (state) => state.MangaSeasonChapter
   );
-  const { mangaSeasons } = useAppSelector((state) => state.MangaSeason);
+  const { mangaSeasons, mangaSeasonLoading } = useAppSelector(
+    (state) => state.MangaSeason
+  );
   const mangaSeason = mangaSeasons.find((mangaSeason) => mangaSeason.id === id);
   const [isloaded, setIsLoaded] = useState<boolean>(false);
   useEffect(() => {
@@ -27,18 +35,26 @@ export default function SeasonDetail() {
       })
     );
   }, []);
-  if (!isloaded) {
-    <SafeAreaView className="h-full flex justify-center items-center  bg-white">
-      <BackNav />
-      <Image src={images.loadingRimuru} className="w-20 h-20" />
-    </SafeAreaView>;
+  if (!isloaded || mangaSeasonLoading || mangaSeasonChapterLoading) {
+    return (
+      <SafeAreaView className="h-full flex justify-center items-center  bg-white">
+        <BackNav />
+        <ActivityIndicator size="small" color="red" />
+      </SafeAreaView>
+    );
   }
   return (
     <SafeAreaView className="h-full px-5  bg-white">
       <BackNav />
-
       <FlatList
         data={mangaSeasonChapters}
+        ListEmptyComponent={() => (
+          <View className="flex justify-center items-center h-full">
+            <Text className="text-center font-lexend-bold text-2xl my-2">
+              No Chapters Found
+            </Text>
+          </View>
+        )}
         renderItem={({ item: mangaSeasonChapter, index }) => (
           <ChapterCard
             onPress={() => {

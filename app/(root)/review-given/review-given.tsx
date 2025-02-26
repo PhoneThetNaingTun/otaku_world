@@ -44,6 +44,7 @@ export default function ReviewGivenPage() {
 
   return (
     <SafeAreaView className="px-5 h-full bg-white">
+      <BackNav />
       {ratingAndReviews.length == 0 ? (
         <View className="w-full h-full">
           <ProfileHeader

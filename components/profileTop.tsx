@@ -13,7 +13,7 @@ export default function ProfileTop() {
         <View>
           <Text className="text-gray-500">Hello! Welcome to Otaku World</Text>
           <Text className="font-semibold text-3xl w-64" numberOfLines={1}>
-            {user?.name} dkajflafjdl
+            {user?.name}
           </Text>
         </View>
       </View>

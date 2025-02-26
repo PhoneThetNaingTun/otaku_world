@@ -71,10 +71,7 @@ const MangaDetail = () => {
       <SafeAreaView
         style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
       >
-        <Image
-          source={images.loadingRimuru}
-          style={{ width: 200, height: 200 }}
-        />
+        <ActivityIndicator size="small" color="red" />
       </SafeAreaView>
     );
   }

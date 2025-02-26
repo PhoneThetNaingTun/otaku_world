@@ -14,6 +14,7 @@ const ProfileDetailPage = () => {
 
   return (
     <SafeAreaView className="flex-1 px-5 bg-white">
+      <BackNav />
       <ProfileHeader
         header="Profile"
         icon={UserRoundPen}
